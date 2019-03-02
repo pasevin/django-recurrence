@@ -839,14 +839,21 @@ def serialize(rule_or_recurrence):
             dt = localtz().localize(dt)
         dt = dt.astimezone(pytz.utc)
 
-        return u'%s%s%sT%s%s%sZ' % (
-            str(dt.year).rjust(4, '0'),
-            str(dt.month).rjust(2, '0'),
-            str(dt.day).rjust(2, '0'),
-            str(dt.hour).rjust(2, '0'),
-            str(dt.minute).rjust(2, '0'),
-            str(dt.second).rjust(2, '0'),
-        )
+        if settings.use_time_info():
+	        return u'%s%s%sT%s%s%sZ' % (
+                str(dt.year).rjust(4, '0'),
+                str(dt.month).rjust(2, '0'),
+                str(dt.day).rjust(2, '0'),
+                str(dt.hour).rjust(2, '0'),
+                str(dt.minute).rjust(2, '0'),
+                str(dt.second).rjust(2, '0'),
+            )
+        else:
+            return u'%s%s%s' % (
+                str(dt.year).rjust(4, '0'),
+                str(dt.month).rjust(2, '0'),
+                str(dt.day).rjust(2, '0')
+            )
 
     def serialize_rule(rule):
         values = []

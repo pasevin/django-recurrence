@@ -23,3 +23,10 @@ def deserialize_tz():
         return settings.RECURRENCE_USE_TZ
     except AttributeError:
         return settings.USE_TZ
+
+
+def use_time_info():
+    try:
+        return settings.RECURRENCE_USE_TIME_INFO
+    except AttributeError:
+        return True
