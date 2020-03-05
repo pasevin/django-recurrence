@@ -27,10 +27,9 @@ Then, make sure ``recurrence`` is in your ``INSTALLED_APPS`` setting:
 Supported Django and Python versions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Currently, django-recurrence supports Python 2.7, Python 3.3, Python
-3.4 and Python 3.5.
+Currently, django-recurrence supports Python 3.6 and Python 3.7.
 
-django-recurrence works with Django from versions 1.7 to 1.11.
+django-recurrence works with Django 1.11, 2.1 and 2.2.
 
 Set up internationalization
 ---------------------------
@@ -44,25 +43,7 @@ Using a translation of django-recurrence other than
 ``en`` requires that django-recurrence's JavaScript can
 access the translation strings. This is handled with Django's built
 in ``javascript_catalog`` view, which you must install by adding the
-following to your project ``urls.py`` file (the following will work
-for versions of Django before 1.10):
-
-.. code-block:: python
-
-    # Your normal URLs here...
-
-    # If you already have a js_info_dict dictionary, just add
-    # 'recurrence' to the existing 'packages' tuple.
-    js_info_dict = {
-        'packages': ('recurrence', ),
-    }
-
-    # jsi18n can be anything you like here
-    urlpatterns += (
-        (r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict),
-    )
-
-For Django 1.10 and above, you'll need:
+following to your project ``urls.py`` file:
 
 .. code-block:: python
 
@@ -96,5 +77,5 @@ to ensure you also have ``django.contrib.staticfiles`` in your
     python manage.py collectstatic
 
 .. note::
-   After collecting static files, you can use {{ form.media }} to
+   After collecting static files, you can use ``{{ form.media }}`` to
    include recurrence's static files within your templates.
