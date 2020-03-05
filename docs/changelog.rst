@@ -1,6 +1,25 @@
 Changelog
 =========
 
+1.10.2
+------
+
+* Add Hebrew localisation (:issue:`159`).
+
+1.10.1
+------
+
+* Update path to jQuery to match the one Django admin provides
+  (:issue:`148`).
+
+1.10.0
+------
+
+* Fixes and official support for Django 2.1 and 2.2 (:issue:`143`,
+  :issue:`142`);
+* Remove support for Python 2.7 and 3.5, remove support for Django
+  2.0 (:issue:`145`).
+
 1.9.0
 -----
 
